@@ -1,6 +1,7 @@
 const app = require("../app")
 const request = require("supertest")
 const model = require("../models/PacienteSchema")
+const userModel = require("../models/UserSchema")
 
 
 const SECRET = process.env.SECRET;
@@ -112,3 +113,7 @@ describe("Paciente Controller", () => {
     });
 
 })
+
+
+
+

@@ -7,9 +7,9 @@ const userController = require("../controllers/userController")
 const { checkAuth } = require("../middlewares/auth");
 
 //rotas de users
-router.get("/all", checkAuth, userController.getAll);
-router.post("/create", userController.createUser);
-router.post("/login", authController.login);
-router.delete("/delete/:id", checkAuth, userController.deleteUser);
+router.get("/users/all", checkAuth, userController.getAll);
+router.post("/users/create", userController.createUser);
+router.post("/users/login", authController.login);
+router.delete("/users/delete/:id", checkAuth, userController.deleteUser);
 
 module.exports = router;
