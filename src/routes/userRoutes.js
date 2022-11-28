@@ -10,5 +10,6 @@ const { checkAuth } = require("../middlewares/auth");
 router.get("/all", checkAuth, userController.getAll);
 router.post("/create", userController.createUser);
 router.post("/login", authController.login);
+router.delete("/delete/:id", checkAuth, userController.deleteUser);
 
 module.exports = router;

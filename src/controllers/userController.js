@@ -41,7 +41,19 @@ const createUser = async (req, res) => {
   }
 }
 
+const deleteUser = async (req, res) => {
+    try {
+      const { id } = req.params
+      await UserSchema.findByIdAndDelete(id)
+      res.status(200).json({ message: `Usuario com o id ${id} deletado` })
+    } catch (err) {
+      console.error(err)
+      res.status(500).json({ message: err.message })
+    }
+  }
+
 module.exports = {
     getAll,
-    createUser
+    createUser,
+    deleteUser
 }

@@ -1,6 +1,22 @@
 const PacienteSchema = require("../models/PacienteSchema");
+// const jwt = require('jsonwebtoken')
+// const SECRET = process.env.SECRET
 
 const criarPaciente = async (request, response) => {
+
+//     const authHeader = request.get('authorization')
+//     if (!authHeader) {
+//       return response.status(401).send('Wheres the authorization, gatinha?')
+//     }
+
+//     const token = authHeader.split(' ') [1]
+
+//   await jwt.verify(token, SECRET, async function (erro) {
+
+//     if (erro) {
+//       return response.status(403).send('Not happening')
+//     }
+// })
     const { nome, telefone, endereco, plano_saude, plano_saude_numero } = request.body
 
     if (!endereco) {
@@ -35,6 +51,21 @@ const criarPaciente = async (request, response) => {
 
 
 const buscarPaciente = async (req, res) => {
+    
+//     const authHeader = req.get('authorization')
+//     if (!authHeader) {
+//       return res.status(401).send('Wheres the authorization, gatinha?')
+//     }
+
+//     const token = authHeader.split(' ') [1]
+
+//   await jwt.verify(token, SECRET, async function (erro) {
+
+//     if (erro) {
+//       return res.status(403).send('Not happening')
+//     }
+// })
+    
     const { nome } = req.query;
     let query = { };
 
@@ -60,6 +91,21 @@ const buscarPaciente = async (req, res) => {
 
 
 const buscarPacientePorId = async (req, res) => {
+    
+//     const authHeader = req.get('authorization')
+//     if (!authHeader) {
+//       return res.status(401).send('Wheres the authorization, gatinha?')
+//     }
+
+//     const token = authHeader.split(' ') [1]
+
+//   await jwt.verify(token, SECRET, async function (erro) {
+
+//     if (erro) {
+//       return res.status(403).send('Not happening')
+//     }
+// })
+    
     const id = req.params.id
 
     try {
@@ -84,6 +130,19 @@ const buscarPacientePorId = async (req, res) => {
 
 const atualizarPaciente = async(req, res) => {
 
+//     const authHeader = req.get('authorization')
+//     if (!authHeader) {
+//       return res.status(401).send('Wheres the authorization, gatinha?')
+//     }
+
+//     const token = authHeader.split(' ') [1]
+
+//   await jwt.verify(token, SECRET, async function (erro) {
+
+//     if (erro) {
+//       return res.status(403).send('Not happening')
+//     }
+// })
     const { nome, telefone, endereco, plano_saude, plano_saude_numero } = req.body
 
     try {
@@ -117,6 +176,20 @@ const atualizarPaciente = async(req, res) => {
 
 const deletarPaciente = async (req, res) => {
     try {
+
+    //     const authHeader = req.get('authorization')
+    //     if (!authHeader) {
+    //       return res.status(401).send('Wheres the authorization, gatinha?')
+    //     }
+    
+    //     const token = authHeader.split(' ') [1]
+    
+    //   await jwt.verify(token, SECRET, async function (erro) {
+    
+    //     if (erro) {
+    //       return res.status(403).send('Not happening')
+    //     }
+    // })
         const buscarPacientePorId = await PacienteSchema.findById(req.params.id)
 
         if (!buscarPacientePorId) {
